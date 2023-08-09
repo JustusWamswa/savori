@@ -38,7 +38,7 @@ function ComboBox() {
                 placeholder="Search by country"
             />
             {inputValue ? openOptions && (
-                <div className="absolute z-10 w-1/5 max-h-56 overflow-y-scroll mt-1 bg-white border border-gray-300 shadow-lg">
+                <div className="absolute z-10 md:w-1/5 max-h-56 overflow-y-scroll mt-1 bg-white border border-gray-300 shadow-lg">
                     {filteredOptions.map((option) => (
                         <div
                             key={option.country}

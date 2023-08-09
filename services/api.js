@@ -11,4 +11,6 @@ export const submitForm = async (firstName, lastName, email, phone, message, cre
         }),
     })
     res = await res.json();
+
+    return res
 }

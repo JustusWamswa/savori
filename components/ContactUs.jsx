@@ -32,6 +32,12 @@ function Contact() {
     if (firstName && lastName && email && message) {
       // send info to mongodb 
       submitForm(firstName, lastName, email, phone, message, created_at)
+      .then((response) => {
+        console.log(response)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
 
       // show toast
       setToast(true)

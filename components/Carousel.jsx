@@ -35,7 +35,7 @@ function Carousel() {
     }
 
     return (
-        <div className="w-3/5 relative">
+        <div className="md:w-3/5 relative">
             <div className="flex items-center justify-center">
                 <button className="absolute left-0 top-1/2 transform -translate-y-1/2 focus:outline-none" onClick={previousSlide}>
                     &lt;
