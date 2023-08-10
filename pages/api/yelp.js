@@ -1,0 +1,20 @@
+export default async (req, res) => {
+    try {
+        const {apiKey, lat, lng } = JSON.parse(req.body)
+
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: `Bearer ${apiKey}`
+            }
+        }
+
+        const response = await fetch(`https://api.yelp.com/v3/businesses/search?latitude=${lat}&longitude=${lng}&categories=food&sort_by=best_match&limit=20`, options)
+        const data = await response.json()
+        res.json({ status: 200, data: data })
+    } catch (error) {
+        console.log(error)
+    }
+
+}

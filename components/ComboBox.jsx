@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
 import { countries } from '@/cache/countries'
+import { useState } from 'react'
 
-function ComboBox() {
+function ComboBox(props) {
 
-    const [inputValue, setInputValue] = useState('')
+    const {inputValue, setInputValue} = props
     const [filteredOptions, setFilteredOptions] = useState([])
     const [openOptions, setOpenOptions] = useState(false)
 
     const options = countries
+    
+
 
     const handleInputChange = (e) => {
         const value = e.target.value
@@ -54,7 +56,7 @@ function ComboBox() {
                         </div>
                     ))}
                 </div>
-            ): null}
+            ) : null}
         </div>
     )
 }

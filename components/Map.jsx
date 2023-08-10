@@ -4,7 +4,9 @@ import Leaflet from 'leaflet'
 import L from 'leaflet'
 import icon from 'leaflet/dist/images/marker-icon.png'
 
-function Map() {
+function Map(props) {
+
+  const { coordinates, capital, setSearchCoordinates, smallMap } = props
 
     const markerIcon = Leaflet.divIcon({
         html: `
@@ -29,7 +31,8 @@ function Map() {
         const map = useMapEvents({
           click: (e) => {
             const { lat, lng } = e.latlng;
-            console.log(e.latlng)
+            // console.log(e.latlng)
+            setSearchCoordinates(e.latlng)
             L.marker([lat, lng],  markerIcon ).addTo(map);
           }
         });
@@ -37,9 +40,10 @@ function Map() {
       }
 
     return (
-        <MapContainer
-            className='w-full h-[80vh]'
-            center={[51.505, -0.09]}
+      coordinates && smallMap ? 
+      <MapContainer
+            className='w-[40vw] h-[40vh]'
+            center={[coordinates.latitude, coordinates.longitude]}
             zoom={7}
             scrollWheelZoom={true}
         >
@@ -47,9 +51,33 @@ function Map() {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={[51.505, -0.09]} icon={markerIcon} />
+            <Marker position={[coordinates.latitude, coordinates.longitude]} icon={markerIcon} >
+              <Popup>
+                <span className='font-semibold'>Capital: </span>{capital}
+              </Popup>
+            </Marker>
             <MyComponent />
         </MapContainer>
+      : coordinates ? 
+        <MapContainer
+            className='w-full h-[80vh]'
+            center={[coordinates.latitude, coordinates.longitude]}
+            zoom={7}
+            scrollWheelZoom={true}
+        >
+            <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <Marker position={[coordinates.latitude, coordinates.longitude]} icon={markerIcon} >
+              <Popup>
+                <span className='font-semibold'>Capital: </span>{capital}
+              </Popup>
+            </Marker>
+            <MyComponent />
+        </MapContainer>
+        
+        : <div className='w-full h-[80vh] bg-zinc-500 animate-pulse'></div>
     )
 }
 

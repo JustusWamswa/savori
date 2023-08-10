@@ -1,5 +1,5 @@
 export const submitForm = async (firstName, lastName, email, phone, message, created_at) => {
-    let res = await fetch("http://localhost:3000/api/inquiries", {
+    let res = await fetch("/api/inquiries", {
         method: "POST",
         body: JSON.stringify({
             firstName: firstName,
@@ -13,4 +13,32 @@ export const submitForm = async (firstName, lastName, email, phone, message, cre
     res = await res.json();
 
     return res
+}
+
+
+export const getGeoapify = async (apiKey, lat, lng) => {
+    let res = await fetch("/api/geoapify", {
+        method: "POST",
+        body: JSON.stringify({
+            lat: lat,
+            lng: lng,
+            apiKey: apiKey,
+        }),
+    })
+    res = await res.json()
+    return res
+}
+
+export const getYelp = async (apiKey, lat, lng) => {
+    let res = await fetch("/api/yelp", {
+        method: "POST",
+        body: JSON.stringify({
+            lat: lat,
+            lng: lng,
+            apiKey: apiKey,
+        }),
+    })
+    res = await res.json()
+    return res
+
 }
