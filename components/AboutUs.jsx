@@ -69,10 +69,10 @@ function AboutUs() {
             <h1 className="text-center font-light text-2xl tracking-widest">FOUNDER</h1>
             <div className=" flex flex-col md:flex-row items-center">
               <Image
-              src={'/meinyellow.png'} 
-              width={400}
-              height={400}
-              alt="founder"
+                src={'/meinyellow.png'}
+                width={400}
+                height={400}
+                alt="founder"
               />
               <p className="leading-7 tracking-wide pl-5">I am the founder and the CEO of SAVORi. I love travelling and photography thus my motivation of founding SAVORi.
                 Here, I feel at home. Other than travelling, my mission is to provide job opportunities for the youth through technology.
@@ -81,9 +81,29 @@ function AboutUs() {
                 network technology and cyber security. I am good in java, python, html, css and android development. I am a freelance
                 programmer when taking a break from school work and I enjoy it so much.
                 <br /><br />
-                My personal contact is 
+                My personal contact is
                 <a href="mailto: j.chemirmir@alustudent.com" className="hover:text-secondary hover:border-b-2 border-b-secondary"> j.chemirmir@alustudent.com</a>.
-                </p>
+              </p>
+            </div>
+          </div>
+          <div className="w-3/5 mx-auto mt-16">
+            <h1 className="text-center font-light text-2xl tracking-widest mb-6">PROJECT OVERVIEW</h1>
+            <div className=" flex flex-col items-center">
+              <p className="leading-7 tracking-wide pl-5">
+                The project is aimed at developing and designing a web application that will help tourists to locate restaurants within specific countries.
+                The website should be user-friendly, responsive and make use various APIs to get information about restaurants. Different visualisation techniques
+                should be used to present data. <br /><br />
+              </p>
+              <div className="md:flex">
+                <span className="font-semibold pr-3">Key Functionalities:</span> <br />
+                <ul>
+                  <li className="pl-2">&#8226; API Integration</li>
+                  <li className="pl-2">&#8226; Mapping Software</li>
+                  <li className="pl-2">&#8226; Visualization Techniques</li>
+                  <li className="pl-2">&#8226; User Interaction</li>
+                  <li className="pl-2">&#8226; APIs and Data Sources</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

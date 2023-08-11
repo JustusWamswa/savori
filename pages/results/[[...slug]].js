@@ -72,6 +72,11 @@ function results() {
           console.log("RES-YELP: ", response.data)
           setSmallMap(true)
           setYelpData(response.data)
+          window.scrollTo({
+            top: 700,
+            left: 0,
+            behavior: "smooth",
+          })
         })
         .catch((error) => {
           console.log(error)
@@ -106,9 +111,9 @@ function results() {
           <p className="pl-3">&#8226; Click a place on the map to view the available restaurants.</p>
           <p className="pl-3 mb-10">&#8226; Zoom in before selecting to get more precise data.</p>
         </div>
-        <div>
+        {/* <div>
           <button type="button" onClick={toggleModal2} className="mt-8 mb-4 md:mb-0 text-primary p-3 border border-primary hover:bg-primary hover:text-tertiary transition-all ease-in-out">Search another country</button>
-        </div>
+        </div> */}
       </div>
 
       <div className="w-full h-[80vh] border border-primary">
@@ -119,35 +124,42 @@ function results() {
           smallMap={smallMap}
         />
       </div>
-      <div className="grid md:grid-cols-2 mb-5 bg-secondary gap-0">
-        <div className="h-[100vh]">
-          <Restaurants yelpData={yelpData} toggleModal={toggleModal} setRestaurantName={setRestaurantName} />
-        </div>
-        <div className="h-[100vh]">
-          <div className="w-[85%] h-[70vh] m-auto mt-6 border border-primary">
-            {showMap &&
-              <MapVisualisation
-                coordinates={coordinates}
-                yelpData={yelpData}
-              />}
-            {showTable &&
-              <Table
-                coordinates={coordinates}
-                yelpData={yelpData}
-              />}
-            {showGraph &&
-              <Graph
-                coordinates={coordinates}
-                yelpData={yelpData}
-              />}
+      {yelpData?.total > 0 ?
+        <div className="grid md:grid-cols-2 mb-5 bg-secondary gap-0">
+          <div className="h-[100vh]">
+            <Restaurants yelpData={yelpData} toggleModal={toggleModal} setRestaurantName={setRestaurantName} />
           </div>
-          <div className="flex justify-between w-1/2 mx-auto">
-            <button type="button" onClick={handleShowMap} className="mt-8 text-tertiary p-2 w-32 border border-secondary bg-primary hover:border-b-primary hover:bg-secondary hover:text-primary transition-all ease-in-out">Map</button>
-            <button type="button" onClick={handleShowTable} className="mt-8 text-tertiary p-2 w-32 border border-secondary bg-primary hover:border-b-primary hover:bg-secondary hover:text-primary transition-all ease-in-out">Table</button>
-            <button type="button" onClick={handleShowGraph} className="mt-8 text-tertiary p-2 w-32 border border-secondary bg-primary hover:border-b-primary hover:bg-secondary hover:text-primary transition-all ease-in-out">Graph</button>
+          <div className="h-[100vh]">
+            <div className="w-[85%] h-[70vh] m-auto mt-6 border border-primary">
+              {showMap &&
+                <MapVisualisation
+                  coordinates={coordinates}
+                  yelpData={yelpData}
+                />}
+              {showTable &&
+                <Table
+                  coordinates={coordinates}
+                  yelpData={yelpData}
+                />}
+              {showGraph &&
+                <Graph
+                  coordinates={coordinates}
+                  yelpData={yelpData}
+                />}
+            </div>
+            <div className="flex justify-between w-1/2 mx-auto">
+              <button type="button" onClick={handleShowMap} className="mt-8 text-tertiary p-2 w-32 border border-secondary bg-primary hover:border-b-primary hover:bg-secondary hover:text-primary transition-all ease-in-out">Map</button>
+              <button type="button" onClick={handleShowTable} className="mt-8 text-tertiary p-2 w-32 border border-secondary bg-primary hover:border-b-primary hover:bg-secondary hover:text-primary transition-all ease-in-out">Table</button>
+              <button type="button" onClick={handleShowGraph} className="mt-8 text-tertiary p-2 w-32 border border-secondary bg-primary hover:border-b-primary hover:bg-secondary hover:text-primary transition-all ease-in-out">Graph</button>
+            </div>
           </div>
         </div>
-      </div>
+        : yelpData?.total == 0 ?
+          <div className="h-[100vh] flex justify-center items-center bg-white ">No data, try another location</div>
+          : null
+
+      }
+
       <Book isOpen={modalOpen} onClose={toggleModal} restaurantName={restaurantName} />
       <ModalSearch isOpen={modalOpen2} onClose={toggleModal2} />
     </div>
