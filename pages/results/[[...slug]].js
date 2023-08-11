@@ -1,13 +1,13 @@
-import { Map, MapVisualisation } from "@/components/Index"
+import { Map, MapVisualisation } from "../../components/Index"
 import { useRouter } from "next/router"
-import { countries } from "@/cache/countries"
+import { countries } from "../../cache/countries"
 import React, { useEffect, useState } from "react"
-import { getGeoapify, getYelp } from "@/services/api"
-import Restaurants from "@/components/Restaurants"
-import Table from "@/components/Table"
-import Graph from "@/components/Graph"
-import Book from "@/components/Book"
-import ModalSearch from "@/components/ModalSearch"
+import { getGeoapify, getYelp } from "../../services/api"
+import Restaurants from "../../components/Restaurants"
+import Table from "../../components/Table"
+import Graph from "../../components/Graph"
+import Book from "../../components/Book"
+import ModalSearch from "../../components/ModalSearch"
 
 function results() {
 
