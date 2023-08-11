@@ -33,34 +33,16 @@ function Map(props) {
             const { lat, lng } = e.latlng;
             // console.log(e.latlng)
             setSearchCoordinates(e.latlng)
-            L.marker([lat, lng],  markerIcon ).addTo(map);
+            L.marker([lat, lng],  {icon: markerIcon} ).addTo(map);
           }
         });
         return null;
       }
 
     return (
-      coordinates && smallMap ? 
-      <MapContainer
-            className='w-[40vw] h-[40vh]'
-            center={[coordinates.latitude, coordinates.longitude]}
-            zoom={7}
-            scrollWheelZoom={true}
-        >
-            <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <Marker position={[coordinates.latitude, coordinates.longitude]} icon={markerIcon} >
-              <Popup>
-                <span className='font-semibold'>Capital: </span>{capital}
-              </Popup>
-            </Marker>
-            <MyComponent />
-        </MapContainer>
-      : coordinates ? 
+       coordinates ? 
         <MapContainer
-            className='w-full h-[80vh]'
+            className='w-full h-full z-0'
             center={[coordinates.latitude, coordinates.longitude]}
             zoom={7}
             scrollWheelZoom={true}

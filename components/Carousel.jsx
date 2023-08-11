@@ -6,11 +6,18 @@ function Carousel() {
     const [currentSlide, setCurrentSlide] = useState(0)
 
     const slides = [
-        '/restaurant2.jpg',
-        '/restaurant2.jpg',
-        '/restaurant2.jpg',
-        '/restaurant2.jpg',
-        '/restaurant2.jpg',
+        '/r1.jpg',
+        '/r2.jpg',
+        '/r3.jpg',
+        '/r4.jpg',
+        '/r5.jpg',
+    ]
+    const names = [
+        'WhimsyBite Café',
+        'FlavorFusion Delights',
+        'EnchantedEats Bistro',
+        'NebulaBites Diner',
+        'SerenePalate Kitchen',
     ]
 
     const nextSlide = () => {
@@ -36,10 +43,7 @@ function Carousel() {
 
     return (
         <div className="md:w-3/5 relative">
-            <div className="flex items-center justify-center">
-                <button className="absolute left-0 top-1/2 transform -translate-y-1/2 focus:outline-none" onClick={previousSlide}>
-                    &lt;
-                </button>
+            <div className="flex items-center justify-center relative">
                 <div
                     className="w-full h-80 transition-all ease-in-out duration-1000"
                     style={{
@@ -49,9 +53,9 @@ function Carousel() {
                         backgroundRepeat: 'no-repeat',
                     }}>
                 </div>
-                {/* <button className="absolute right-0 top-1/2 transform -translate-y-1/2 focus:outline-none" onClick={nextSlide}>
-                    &gt;
-                </button> */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100 bg-black bg-opacity-0 hover:bg-opacity-60">
+                    <span className="text-white text-3xl font-bold">{names[currentSlide]}</span>
+                </div>
             </div>
             <div className="flex justify-center mt-8">
                 {slides.map((e, index) => (

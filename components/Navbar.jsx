@@ -62,23 +62,13 @@ function Navbar() {
                 </Link>
               </li>
               <li className="hover:text-secondary hover:border-b-2 border-b-secondary">
-                <Link href="/team">
-                  Our Team
-                </Link>
-              </li>
-              <li className="hover:text-secondary hover:border-b-2 border-b-secondary">
-                <Link href="/careers">
-                  Careers
+                <Link href="/about">
+                  About Us
                 </Link>
               </li>
               <li className="hover:text-secondary hover:border-b-2 border-b-secondary">
                 <Link href="/contact">
                   Contact Us
-                </Link>
-              </li>
-              <li className="hover:text-secondary hover:border-b-2 border-b-secondary">
-                <Link href="/blogs">
-                  Blogs
                 </Link>
               </li>
             </ul>
