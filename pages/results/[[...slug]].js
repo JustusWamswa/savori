@@ -135,6 +135,8 @@ function results() {
                 <MapVisualisation
                   coordinates={coordinates}
                   yelpData={yelpData}
+                  lat={lat}
+                  lng={lng}
                 />}
               {showTable &&
                 <Table

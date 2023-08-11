@@ -32,7 +32,7 @@ function MapVisualisation(props) {
             <MapContainer
                 className='w-[100%] h-[100%] z-0'
                 center={[coordinates.latitude, coordinates.longitude]}
-                zoom={13}
+                zoom={1}
                 scrollWheelZoom={true}
             >
                 <TileLayer
