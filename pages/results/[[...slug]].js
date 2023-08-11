@@ -1,4 +1,4 @@
-import { Map, MapVisualisation } from "@/components"
+import { Map, MapVisualisation } from "@/components/Index"
 import { useRouter } from "next/router"
 import { countries } from "@/cache/countries"
 import React, { useEffect, useState } from "react"
