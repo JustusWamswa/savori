@@ -13,7 +13,7 @@ function Landing() {
 
   return (
     <>
-      <div className="w-full h-screen bg-[url('/rest-bg2.jpg')] bg-no-repeat bg-top bg-cover">
+      <div className="w-full h-screen bg-[url('/rest-bg2.webp')] bg-no-repeat bg-top bg-cover">
         <div className="w-full h-screen bg-black bg-opacity-10 flex flex-col items-center">
           <h2 className="text-secondary font-medium text-xl tracking-widest mb-5 mt-40"> WELCOME TO SAVORi</h2>
           <h1 className="text-tertiary font-bold text-3xl md:text-5xl w-11/12 md:w-3/5 mx-auto text-center tracking-tight leading-snug">Savor the journey: where flavor and tradition blend in harmony!</h1>
@@ -102,7 +102,7 @@ function Landing() {
             </div>
             <div className="md:w-[47%] h-full bg-tertiary mt-8 md:mt-0 py-5 px-7">
               <div className="flex items-center">
-                <div className="w-16 h-16 rounded-full bg-[url('/chef.jpg')] bg-center bg-no-repeat bg-cover"></div>
+                <div className="w-16 h-16 rounded-full bg-[url('/wu.webp')] bg-center bg-no-repeat bg-cover"></div>
                 <div className="pl-5">
                   <h2 className="font-semibold text-xl text-zinc-800">Jane Wu</h2>
                   <p className="text-zinc-400 font-normal">Traveller</p>

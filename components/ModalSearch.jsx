@@ -19,9 +19,9 @@ function ModalSearch(props) {
         inputValue ?
             countries.map((country) => {
                 (country.country).toLocaleLowerCase() == inputValue.toLocaleLowerCase() ? router.push(`/results/${inputValue.toLowerCase()}`)
-                    : (setCountryExists(true),
+                    : (setCountryExists(false),
                         setTimeout(() => {
-                            setCountryExists(false)
+                            setCountryExists(true)
                         }, 1000))
             })
             : (setNoInput(true),
